@@ -1,0 +1,19 @@
+h1 The Silence
+canvas(width='800',height='400',style='border:1px solid black;',id='gameCanvas')
+
+script(type='text/javascript', src='assets/js/Game.js')
+script(type='text/javascript', src='assets/js/Sprite.js')
+script(type='text/javascript', src='assets/js/Character.js')
+script(type='text/javascript', src='assets/js/Button.js')
+script(type='text/javascript', src='assets/js/Scene.js')
+script(type='text/javascript', src='assets/js/AvatarEditor.js')
+script(type='text/javascript', src='assets/js/WelcomeScene.js')
+script(type='text/javascript', src='assets/js/RoomScene.js')
+script(type='text/javascript')
+  var game = new Game({
+    width: 800,
+    height: 400,
+    canvasId: 'gameCanvas',
+    cdnUrl: 'assets/'
+  });
+  game.run();
