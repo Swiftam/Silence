@@ -1,19 +1,37 @@
 h1 The Silence
-canvas(width='800',height='400',style='border:1px solid black;',id='gameCanvas')
+if loggedIn
+  canvas#gameCanvas(width='800',height='400',style='border:1px solid black;')
+else
+  form(action='/login',method='post')
+    p
+      label
+        Username:
+        input(name='username',type='text')
+    p
+      label
+        Password:
+        input(name='password',type='password')
+    p
+      input(type='submit')
+  p I'm new!
+    a(href='/signup') Sign up now
 
-script(type='text/javascript', src='assets/js/Game.js')
-script(type='text/javascript', src='assets/js/Sprite.js')
-script(type='text/javascript', src='assets/js/Character.js')
-script(type='text/javascript', src='assets/js/Button.js')
-script(type='text/javascript', src='assets/js/Scene.js')
-script(type='text/javascript', src='assets/js/AvatarEditor.js')
-script(type='text/javascript', src='assets/js/WelcomeScene.js')
-script(type='text/javascript', src='assets/js/RoomScene.js')
-script(type='text/javascript')
-  var game = new Game({
-    width: 800,
-    height: 400,
-    canvasId: 'gameCanvas',
-    cdnUrl: 'assets/'
-  });
-  game.run();
+if loggedIn
+  script(type='text/javascript', src='assets/js/Game.js')
+  script(type='text/javascript', src='assets/js/Sprite.js')
+  script(type='text/javascript', src='assets/js/Character.js')
+  script(type='text/javascript', src='assets/js/Button.js')
+  script(type='text/javascript', src='assets/js/Scene.js')
+  script(type='text/javascript', src='assets/js/AvatarEditor.js')
+  script(type='text/javascript', src='assets/js/WelcomeScene.js')
+  script(type='text/javascript', src='assets/js/RoomScene.js')
+  script(type='text/javascript')
+    $(document).ready(function() {
+      var game = new Game({
+        width: 800,
+        height: 400,
+        canvasId: 'gameCanvas',
+        cdnUrl: 'assets/'
+      });
+      game.run();
+    });
