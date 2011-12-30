@@ -1,0 +1,19 @@
+{
+  "author": "Mike Wilson <mike@swiftam.com> (http://www.swiftam.com)",
+  "name": "Silence",
+  "description": "A Node.js and HTML5 MMO",
+  "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Swiftam/Silence.git"
+  },
+  "engines": {
+    "node": "~0.4.11"
+  },
+  "dependencies": {
+    "express": "2.5.x",
+    "jade": "0.20.x",
+    "socket.io": "0.8.x"
+  },
+  "devDependencies": {}
+}

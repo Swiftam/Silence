@@ -1,0 +1,26 @@
+h1 Sign Up
+
+form(action='/signup',method='post')
+  p
+    label Username:
+      input(type='text',name='username')
+  p
+    label Password:
+      input(type='password',name='password')
+  p
+    label Password: (confirm)
+      input(type='password',name='passwordc')
+  p
+    label Email:
+      input(type='text',name='email')
+  p
+    label Email: (confirm)
+      input(type='text',name='emailc')
+  p
+    label &nbsp;
+      input(type='submit',value='Play Now')
+script(type='text/javascript',src='assets/js/form_validations.js')
+script(type='text/javascript')
+  $(document).ready(function(){
+    signupValidation();
+  });
