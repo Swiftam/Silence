@@ -8,6 +8,8 @@ var Game = function(settings)
 	var scene = null;
 	var frameRate = 1000 / 32;
 	var pc = null;
+	var lastLoop = new Date;
+	var fpsMonitor = document.getElementById('fpsMonitor');
 	this.run = function() {
 		var canvas = document.getElementById(settings.canvasId);
 		if ( canvas.getContext ) {
@@ -124,8 +126,13 @@ var Game = function(settings)
 		if ( scene ) {
 			scene.render(context, mousePos, mouseOver, mouseDown);
 		}
-		setTimeout(function() {
+		requestAnimationFrame(function() {
 			renderLoop(context);
-		}, frameRate);
+		});
+		if ( null != fpsMonitor ) {
+			var thisLoop = new Date;
+			fpsMonitor.innerText = ''+(1000 / (thisLoop-lastLoop));
+			lastLoop = thisLoop;
+		}
 	};
 };
